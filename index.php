@@ -11,13 +11,26 @@ require_once 'includes/login_view.php';
     <title>Document</title>
 </head>
 <body>
-    <h3>Login</h3>
+    <h3>
+        <?php
+        output_username();
 
-    <form action="includes/login.php" method="post">
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="pwd" placeholder="Password">
-        <button>Login</button>
-    </form>
+        ?>
+    </h3>
+
+    <?php 
+    //If user is not logged in, show the login form
+    if(!isset($_SESSION["user_id"])){ ?>
+        <h3>Login</h3>
+        <form action="includes/login.php" method="post">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="pwd" placeholder="Password">
+            <button>Login</button>
+        </form>
+
+    <?php } ?>
+ 
+    
 
     <?php
     check_login_errors();
@@ -36,5 +49,11 @@ require_once 'includes/login_view.php';
     <?php
     check_signup_errors(); //show error messages to your users
     ?>
+
+    <h3>Logout</h3>
+
+    <form action="includes/logout.php" method="post">
+        <button>Logout</button>
+    </form>  
 </body>
 </html>

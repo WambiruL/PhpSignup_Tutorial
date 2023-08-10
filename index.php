@@ -1,7 +1,7 @@
 <?php
 require_once 'includes/config_session.php';
 require_once 'includes/signup_view.php';
-
+require_once 'includes/login_view.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +18,11 @@ require_once 'includes/signup_view.php';
         <input type="password" name="pwd" placeholder="Password">
         <button>Login</button>
     </form>
+
+    <?php
+    check_login_errors();
+
+    ?>
     
     <h3>Signup</h3>
 
